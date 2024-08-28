@@ -42,9 +42,10 @@ def main():
   
 
   """ 
-    By pulling in data on a weekly basis  this can lead to missing reports. This is due to the lab having to re-run assay or a hold up in the lab. The perfered method for doing an automated pull that
-    factors in the reflexing would be a monthly pull or a daily pull. Since this was weekly, I went ahead and wrote a script that pulls in all of the previous reports, filters those reports out, and then gives 
-    me the reports that need to go out for that week. Lastly, I wrapped this in a try except in case a report threw an error with the filtering. 
+Pulling data on a weekly basis can lead to missing reports due to assay reflexing or delays in the lab.
+The preferred method for an automated pull that accounts for reflex testing would be either a monthly or daily pull. 
+Since this was set to weekly, I wrote a script that retrieves all previous reports, filters them out, and identifies the reports needed for that week.
+Finally, I wrapped the script in a try-except block to handle any errors during the filtering process. 
     """
     try:
         phy_path = f.csv_filepath()
@@ -66,7 +67,7 @@ def main():
         tox.to_csv(outpath + (str(tox_filename + '.csv')), index=False)
 
     """ 
-    This exception clause will send an error message to my project management board using a pre defined template. 
+    This exception clause will send an error message to my project management board using a pre-defined template. 
     """
     except Exception as e:
         error_subject = "TOX - No Physician Signature"
@@ -80,12 +81,9 @@ def main():
 
 
   """ 
-  Sending an email using a built in function. 
-  Allows for multiple emails to go within the variable called recipient_email.
-  Uses HTML to format the body of the email and uses the blue color to allow for the date range to stand out. 
-  Also lets the end user know if there are any new reports for the week. 
-  Lastly, if the length of the reports is greater than zero, it attaches the file to the email. If there are no new reports then a file will not be attached to the email however an email will 
-  still go out to the end user letting them know that there are no new reports. 
+This built-in function sends an email, allowing multiple addresses to be specified in the recipient_email variable. 
+The email body is formatted using HTML, with a blue color to highlight the date range. The email notifies the end user if there are any new reports for the week. 
+If new reports exist, the file is attached to the email; if not, the email is still sent to inform the user that there are no new reports.
   """
 
     recipient_email = '''

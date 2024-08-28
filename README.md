@@ -1,16 +1,16 @@
 ## Quick-Automated-Pull
 
 ## Python
-This repository contains  the Python script used to create the program that monitored the physician signatures on all orders. Once the data is extracted using SQL, it was then formated in Python. The  formating in Python was to set up the script to run on a weeklly basis.  To keep this a high level overview, jsut the Python script will be included.
+This repository contains the Python script used to create a program that monitors physician signatures on all orders. After extracting the data using SQL, the data is formatted in Python to set up the script for weekly execution. This overview includes only the Python script for simplicity.
 
 ## Project Overview
-The need for this project came from a Kaizen Event.  When orders arrive at the lab without a physician signatures this causes a lot of re-work for accessioning and client relations. This then ultimately leads to a  delay in  patient testing.
+This project was initiated during a Kaizen Event. Orders arriving at the lab without physician signatures cause significant rework for accessioning and client relations, leading to delays in patient testing.
 
 ## Data Sources
 The SQL script pulls data from the following tables:
 
-Order Table: Contains information on orders placed  such as if an order is missing a signature based on boolean values. 
+Order Table: Contains information on orders, including whether a signature is missing based on boolean values.
 
 
 ## Automation
-Finally, once the data has been approved by the program manager the program is then automated using a batch file along with Task Scheduler. The program runs on a weekly basis. 
+Once approved by the program manager, the program is automated using a batch file and Task Scheduler, running on a weekly basis. 
